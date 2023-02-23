@@ -5,7 +5,7 @@ import java.util.Observable;
 
 
 /** The state of a game of 2048.
- *  @author TODO: YOUR NAME HERE
+ *  @author Michelle
  */
 public class Model extends Observable {
     /** Current contents of the board. */
@@ -138,8 +138,22 @@ public class Model extends Observable {
      */
     public static boolean emptySpaceExists(Board b) {
         // TODO: Fill in this function.
+        int x = 0;
+        int y = 0;
+        while (x < b.size()) {
+            while (y < b.size()) {
+                Tile p = b.tile(y, x);
+                if (p == null) {
+                    return true;
+                }
+                y = y + 1;
+            }
+            x = x + 1;
+            y = 0;
+        }
         return false;
     }
+
 
     /**
      * Returns true if any tile is equal to the maximum valid value.
