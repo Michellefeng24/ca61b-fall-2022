@@ -184,8 +184,62 @@ public class Model extends Observable {
      */
     public static boolean atLeastOneMoveExists(Board b) {
         // TODO: Fill in this function.
+        for (int x = 0; x < b.size(); x += 1) {
+            for (int y = 0; y < b.size(); y += 1) {
+                Tile p = b.tile(y, x);
+                if (p == null) {
+                    return true;
+                }
+
+                int y_right = y + 1;
+                if (y_right < b.size()) {
+                    Tile p_1 = b.tile(y_right, x);
+                    if (p_1 == null) {
+                        continue;
+                    }
+                    if (p_1.value() == p.value()) {
+                        return true;
+                    }
+                }
+
+                int y_left = y - 1;
+                if (y_left > 0) {
+                    Tile p_2 = b.tile(y_left, x);
+                    if (p_2 == null) {
+                        continue;
+                    }
+                    if (p_2.value() == p.value()) {
+                        return true;
+                    }
+                }
+
+                int x_right = x + 1;
+                if (x_right < b.size()) {
+                    Tile p_3 = b.tile(y, x_right);
+                    if (p_3 == null) {
+                        continue;
+                    }
+                    if (p_3.value() == p.value()) {
+                        return true;
+                    }
+                }
+
+                int x_left = x - 1;
+                if (x_left > 0) {
+                    Tile p_4 = b.tile(y, x_left);
+                    if (p_4 == null) {
+                        continue;
+                    }
+                    if (p_4.value() == p.value()) {
+                        return true;
+                    }
+                }
+
+            }
+        }
         return false;
     }
+
 
     /** Returns the model as a string, used for debugging. */
     @Override
