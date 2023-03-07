@@ -117,6 +117,22 @@ public class Model extends Observable {
      */
     public void tilt(Side side) {
         // TODO: Fill in this function.
+        boolean changed;
+        changed = false;
+        for (int c = 0; c < _board.size(); c += 1){
+            for (int r = 0; r < _board.size(); r += 1){
+                Tile t = _board.tile(c, r);
+                if (_board.tile(c, r) != null){
+                    _board.move(c, 3, t);
+                changed = true;
+            }
+        }
+
+
+
+
+
+
 
         checkGameOver();
     }
